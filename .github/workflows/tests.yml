@@ -3,6 +3,9 @@ name: Trello API Tests & Allure
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
+  schedule:
+    - cron: '07 ** 1-5'
 
 jobs:
   test-and-report:
@@ -44,3 +47,14 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: allure-history
+    - name: Send Telegram Notification 📱
+      uses: appleboy/telegram-action@master
+      if: always()
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          🤓 "Босс, тесты Trello API завершены"
+          🔮 Статус прогона: ${{ job.status }}
+          📊 Ссылка на отчет:
+          https://AQANikolay.github.io/TRELLO-API-AQA/
