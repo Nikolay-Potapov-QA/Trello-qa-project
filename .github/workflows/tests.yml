@@ -1,0 +1,46 @@
+name: Trello API Tests & Allure
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test-and-report:
+    runs-on: ubuntu-latest
+
+    env:
+      TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
+      TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+
+    steps:
+    - name: Download code
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Tests 🚀
+      run: PYTHONPATH=. pytest -v --alluredir=allure-results
+      continue-on-error: true
+
+    - name: Generate Allure Report 📊
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      with:
+        allure_results: allure-results
+        allure_history: allure-history
+
+    - name: Publish to GitHub Pages 🌐
+      uses: peaceiris/actions-gh-pages@v3
+      if: always()
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: allure-history
