@@ -1,4 +1,0 @@
-
-[SETUP] Temporary board created: 69c263488e8a270d4d5a3f89
-
-[TEARDOWN] Deleting temporary board: 69c263488e8a270d4d5a3f89
