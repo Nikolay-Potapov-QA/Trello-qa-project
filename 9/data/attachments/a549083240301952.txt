@@ -1,6 +1,0 @@
-
-[SETUP] Temporary board created: 69c507661520204b8102d56e
-
-[SETUP] Temporary card created: 69c507672a81d4518adf0e88
-
-[TEARDOWN] Deleting temporary board: 69c507661520204b8102d56e
