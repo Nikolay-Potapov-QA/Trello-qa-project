@@ -1,7 +1,0 @@
-"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
-"0","Trello API Framework","0","Negative tests (Security, Validation","2","0","Boards managing","0"
-"2","Trello API Framework","5","Positive tests (Boards, Lists, Cards","0","0","Boards managing","0"
-"3","Trello API Framework","0","Positive tests (Boards, Lists, Cards","0","0","Cards managing","0"
-"0","Trello API Framework","0","Negative tests (Security, Validation","1","0","Cards managing","0"
-"1","Trello API Framework","0","Positive tests (Boards, Lists, Cards","0","0","Lists managing","0"
-"1","Trello API Framework","0","Positive tests (Boards, Lists, Cards","0","0","E2E test","0"
