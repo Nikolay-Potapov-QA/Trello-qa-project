@@ -1,3 +1,8 @@
 venv/
 .pytest_cache/
 .env
+__pycache__/
+*.pyc
+.idea/
+allure-results/
+allure-2.30.0/
